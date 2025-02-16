@@ -35,7 +35,7 @@ public:
         return _Value;
     }
 
-    __declspec(property(get = GetValue, put = SetValue)) string Value;
+    // __declspec(property(get = GetValue, put = SetValue)) string Value;
 
    
     static short Length(string S1)
@@ -185,7 +185,7 @@ public:
    {
        _Value = InvertAllLettersCase(_Value);
    }
-
+ 
    enum enWhatToCount { SmallLetters = 0, CapitalLetters = 1, All = 3 };
 
    static short CountLetters(string S1, enWhatToCount WhatToCount = enWhatToCount::All)
