@@ -56,7 +56,7 @@ public:
 		//This will construct a date by date order in year
 		clsDate Date1 = GetDateFromDayOrderInYear(DateOrderInYear, Year);
 	    _Day = Date1.Day;
-		_Month = Date1.Month;
+		_Month = Date1.GetMonth();
 		_Year = Date1.Year;
 	}
 
@@ -486,7 +486,7 @@ public:
 
 	static bool IsDate1BeforeDate2(clsDate Date1, clsDate Date2)
 	{
-		return  (Date1.Year < Date2.Year) ? true : ((Date1.Year == Date2.Year) ? (Date1.Month < Date2.Month ? true : (Date1.Month == Date2.Month ? Date1.Day < Date2.Day : false)) : false);
+		return  (Date1.Year < Date2.Year) ? true : ((Date1.Year == Date2.Year) ? (Date1.GetMonth() < Date2.Month ? true : (Date1.GetMonth() == Date2.Month ? Date1.Day < Date2.Day : false)) : false);
 	}
 
 	bool IsDateBeforeDate2(clsDate Date2)
@@ -498,7 +498,7 @@ public:
 
 	static bool IsDate1EqualDate2(clsDate Date1, clsDate Date2)
 	{
-		return  (Date1.Year == Date2.Year) ? ((Date1.Month == Date2.Month) ? ((Date1.Day == Date2.Day) ? true : false) : false) : false;
+		return  (Date1.Year == Date2.Year) ? ((Date1.GetMonth() == Date2.Month) ? ((Date1.Day == Date2.Day) ? true : false) : false) : false;
 	}
 
 	bool IsDateEqualDate2(clsDate Date2)
@@ -1012,8 +1012,8 @@ public:
 	{
 
 		clsDate EndOfMontDate;
-		EndOfMontDate.Day = NumberOfDaysInAMonth(Date1.Month, Date1.Year);
-		EndOfMontDate.Month = Date1.Month;
+		EndOfMontDate.Day = NumberOfDaysInAMonth(Date1.GetMonth(), Date1.Year);
+		EndOfMontDate.Month = Date1.GetMonth();
 		EndOfMontDate.Year = Date1.Year;
 
 		return GetDifferenceInDays(Date1, EndOfMontDate, true);

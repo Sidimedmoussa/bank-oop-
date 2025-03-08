@@ -1,11 +1,10 @@
-//ProgrammingAdivces.com
-//Mohammed Abu-Hadhoud
-
 #pragma once
+
 #include <iostream>
 #include <string>
 #include "clsString.h"
 #include "clsDate.h"
+#include <limits>
 
 class clsInputValidate
 {
@@ -79,7 +78,8 @@ public:
 
 		while (!IsNumberBetween(Number, From, To))
 		{
-			cout << ErrorMessage;
+			cout << left << setw(34) << "     " <<  ErrorMessage;
+			cout << left << setw(34) << "     ";
 			Number = ReadIntNumber();
 		}
 		return Number;
