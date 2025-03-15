@@ -6,6 +6,12 @@
 #include "clsShowClientsScreen.h"
 #include "clsInputValidate.h"
 #include "clsUtil.h"
+#include "clsAddClientScreen.h"
+#include "clsDeleteClientScreen.h"
+#include "clsUpdateClientScreen.h"
+#include "clsFindClientScreen.h"
+#include "clsTransactionScreen.h"
+
 
 class clsMainScreen :protected clsSCreen
 {
@@ -93,31 +99,33 @@ private:
 
     
     static void _AddNewClient(){
-        _ScreenTitle("Add New Client");
-        cout << "client will be add here." << endl;
+        // cout << "client will be add here." << endl;
+         clsAddClientScreen::AddNewClient();  
+
     }
 
     static void _UpdateClient(){
-        _ScreenTitle("Update Client");
-        cout << "client will be updated here." << endl;
+        // cout << "client will be updated here." << endl;
+        clsUpdateClientScreen::updateClient();
 
 
     }
 
     static void _DeleteClient(){
 
-        _ScreenTitle("Delete Client");
-        cout << "client will be delete here." << endl;
+        // cout << "client will be delete here." << endl;
+        clsDeleteClientScreen::DeleteClient();
     }
 
     static void _FindClient(){
-        _ScreenTitle("Find Client");
-        cout << "client will be found here." << endl;
+        // cout << "client will be found here." << endl;
+        clsFindClientScreen::FindClient();
     }
 
     static void _Transactions(){
-        _ScreenTitle("Transaction Menue");
-        cout<< "Transaction" << endl;
+        // cout<< "Transaction" << endl;
+
+        clsTransactionScreen::TransactionMenueScreen();
     }
 
     static void _ManageUsers(){
@@ -139,7 +147,7 @@ public:
 
     static void MainScreen(){
         system("cls");
-        _ScreenTitle("Main Menue Screen ");
+        _ScreenTitle("Main Menue");
         cout << "\n \t\t\t\t===================================================================" << endl;
         cout << " \t\t\t\t\t\t\t  Main Menue" << endl;
         cout << "\n \t\t\t\t===================================================================" << endl;

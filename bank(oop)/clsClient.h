@@ -1,3 +1,4 @@
+#pragma once
 #include<iostream>
 #include<string>
 #include<fstream>
@@ -58,7 +59,7 @@ private:
         return vClients;
     }
 
-    void _saveCLients(vector<clsClient> vClients){
+   static void _saveCLients(vector<clsClient> vClients){
 
         fstream file;
 
@@ -159,21 +160,21 @@ private:
         return (_Mode == enMode::EmptyMode);
     }
    
-    void Print(){
+    // void Print(){
 
-        cout << "\nClient Card:";
-        cout << "\n___________________";
-        cout << "\nFirstName   : " << GetFirstName();
-        cout << "\nLastName    : " << GetLastName();
-        cout << "\nFull Name   : " << FullName();
-        cout << "\nEmail       : " << GetEmail();
-        cout << "\nPhone       : " << GetPhone();
-        cout << "\nAcc. Number : " << AcountNumber();
-        cout << "\nPassword    : " << PinCode();
-        cout << "\nBalance     : " << AcountBalence();
-        cout << "\n___________________\n";
+    //     cout << "\nClient Card:";
+    //     cout << "\n___________________";
+    //     cout << "\nFirstName   : " << GetFirstName();
+    //     cout << "\nLastName    : " << GetLastName();
+    //     cout << "\nFull Name   : " << FullName();
+    //     cout << "\nEmail       : " << GetEmail();
+    //     cout << "\nPhone       : " << GetPhone();
+    //     cout << "\nAcc. Number : " << AcountNumber();
+    //     cout << "\nPassword    : " << PinCode();
+    //     cout << "\nBalance     : " << AcountBalence();
+    //     cout << "\n___________________\n";
 
-    }
+    // }
    
     static clsClient Find(string AcountNumber){
 
@@ -296,5 +297,19 @@ private:
           TotalBalence += client.AcountBalence();
 
         return TotalBalence;
+     }
+
+     static void Deposit(string AccountNumber, float DepositAmmount){
+
+        vector<clsClient> vClient = GetAllClient();
+
+        for (clsClient& client : vClient){
+            if(client.AcountNumber() == AccountNumber){
+
+                client.SetAcountBalence(client.AcountBalence() + DepositAmmount);
+            }
+        }
+
+        _saveCLients(vClient);
      }
 };

@@ -354,6 +354,7 @@ public:
 	void PrintMonthCalendar()
 	{
 		PrintMonthCalendar(_Month, _Year);
+		
 	}
 
 	static void PrintYearCalendar(int Year)
